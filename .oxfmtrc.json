@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 120,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": false,
+  "trailingComma": "none",
+  "singleQuote": false,
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "arrowParens": "avoid",
+  "singleAttributePerLine": false,
+  "htmlWhitespaceSensitivity": "ignore",
+  "sortPackageJson": false,
+  "ignorePatterns": [
+    ".github",
+    ".husky",
+    ".vscode",
+    "/public/**",
+    "/node_modules/**",
+    "**/*.svg",
+    "**/*.sh"
+  ]
+}

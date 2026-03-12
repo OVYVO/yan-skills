@@ -1,0 +1,23 @@
+{
+  "name": "yan-skills",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"Build completed\"",
+    "dev": "echo \"Development mode\""
+  },
+  "keywords": [
+    "skills",
+    "code-style",
+    "frontend",
+    "development"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "前端开发代码风格和规范技能集合",
+  "type": "commonjs",
+  "devDependencies": {
+    "oxfmt": "^0.38.0"
+  }
+}
