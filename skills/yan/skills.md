@@ -32,7 +32,7 @@ src/views/featureName/        # Semantic naming (camelCase)
 
 ## Page Templates
 
-- **Base Template**: SFC base file template：
+- **Base Template**: SFC file template：
 
 ```vue
 <template>
