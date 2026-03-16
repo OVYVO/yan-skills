@@ -1,0 +1,23 @@
+{
+  "skill_name": "initpro",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我想从 0 初始化一个 Vue3 + Vite + TS 的前端项目，包管理器用 pnpm。请给出你会执行的步骤和关键命令，并列出最后要验收的清单。",
+      "expected_output": "输出应选择 Vue3+Vite 模板，给出创建项目、安装、启动、工程化最小集（lint/format/husky/lint-staged）、别名与目录结构建议，并给出交付清单。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "我要做一个需要 SEO 的官网，技术栈倾向 Vue。请初始化一个 Nuxt 项目的落地流程（pnpm），并提醒我 Nuxt 和 Vite 项目在目录约定上的差异。",
+      "expected_output": "输出应选择 Nuxt 模板，给出 nuxi init 与 pnpm 命令，说明 Nuxt 目录约定与工程化落地建议。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "团队要新起一个 React + Vite + TS 项目（pnpm），希望提交前自动格式化并跑 lint。请给出初始化流程和最终验收点。",
+      "expected_output": "输出应选择 React+Vite 模板，给出创建/安装/启动命令，并包含提交前检查目标与交付清单。",
+      "files": []
+    }
+  ]
+}

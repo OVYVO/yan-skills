@@ -1,38 +1,30 @@
 ---
 name: ryanYan
-description: ryanYan's opinionated tooling and conventions for JavaScript and Vue 3 projects. Use when initializing projects, configuring oxlint/oxfmt standards, quickly adding page templates, setting up monorepo architecture, publishing npm packages, or when the user mentions ryanYan's coding preferences.
+description: ryanYan 的前端工程化偏好与规范（JavaScript / Vue 3 为主）。只要用户在讨论“新建/初始化前端项目、配置 ESLint/格式化、落地代码规范、Vue 页面模板/目录结构、提交前检查（husky/lint-staged/commitlint）、monorepo 规划、发布 npm 包”，即使没点名 ryanYan，也应触发本 skill 并按本文约定执行；涉及“从 0 初始化项目流程”时，优先联动 `initrepo` skill。
 metadata:
   author: ryanYan
   version: "2026.03.12"
 ---
 
-## Coding Practices
+## 代码规范（必须遵守）
 
-### Code Organization
+### 代码组织
 
-- **Single Responsibility**: Each file should handle a single functional responsibility with clear inputs and outputs
-- **Large File Splitting**: Oversized files must be split in a reasonable and clear manner for maintainability
-- **Static Properties**: Static properties or enum fields should be maintained in a separate `config.js` file
-- **Usage Instructions**: Do not output a `README.md` file unless explicitly requested
-- **Feature Module Structure**: When creating a new feature module, follow the file structure below：
+- **单一职责**：单文件只做一件事，输入/输出清晰
+- **大文件拆分**：超过维护阈值（可读性明显下降）就拆分，按领域/功能分层
+- **静态映射下沉**：静态属性、枚举映射、状态字典、列配置等，统一抽到模块内的 `config.js`
+- **README 策略**：除非用户明确要，否则不要额外输出 `README.md`（避免噪声与维护负担）
 
-```json
-src/views/featureName/        # Semantic naming (camelCase)
-├── index.vue                 # Entry file
-├── components/               # Module-specific components
-├── images/                   # Module-specific assets
-├── api.js                    # API definitions (single responsibility)
-└── config.js                 # Business configuration (column definitions, status mappings)
-```
+### 注释
 
-### Comments
+- **避免无意义注释**：代码本身应可读
+- **只解释 why**：只在“意图/权衡/约束”不明显时注释；不要解释显而易见的 how
 
-- **Avoid unnecessary comments**: Code should be self-explanatory
-- **Explain "why" not "how"**: Comments should describe the reasoning or intent, not what the code does
+## 页面模板（Vue SFC）
 
-## Page Templates
+用于快速起页面骨架，默认基于 `my-page` 布局插槽。
 
-- **Base Template**: SFC file template：
+**基础模板：**
 
 ```vue
 <template>
@@ -49,10 +41,11 @@ src/views/featureName/        # Semantic naming (camelCase)
 <style lang="scss" scoped></style>
 ```
 
-## Tooling Choice
+## 工具链选择（工程化）
 
-- **Package Manager**: Always use pnpm
-- **Code Formatting**: Use Oxfmt for code formatting with the following configuration:
+- **包管理器**：统一使用 `pnpm`（可配合 `only-allow` 约束）
+- **格式化**：统一使用 `oxfmt`
+  - 如果仓库根目录已有 `.oxfmtrc.json`，以它为准；否则使用下面配置作为基线。
 
 ```json
 {
@@ -81,7 +74,10 @@ src/views/featureName/        # Semantic naming (camelCase)
 }
 ```
 
-- **Code Linting**: Always use ESLint with the following `eslint.config.js` configuration:
+- **代码检查**：统一使用 ESLint（Flat Config）
+  - 若项目使用 `unplugin-auto-import`，配套生成 `.eslintrc-auto-import.json` 并在 ESLint globals 中引入（避免误报）。
+
+**推荐 `eslint.config.js`（可直接复用）：**
 
 ```js
 import globals from "globals";
@@ -142,4 +138,7 @@ export default [
 ];
 ```
 
-## References
+## 与 `initrepo` 的分工（避免重复）
+
+- **本 skill**：定义“偏好与规范”（目录/代码风格/工具链约束/模板）
+- **`initrepo`**：负责“从 0 初始化项目的完整流程”（脚手架 → 安装 → 命令 → 工程化落地 → 验收）
