@@ -1,5 +1,5 @@
 ---
-name: ryanYan
+name: yanskill
 description: ryanYan 的前端工程化偏好与规范（JavaScript / Vue 3 为主）。只要用户在讨论“新建/初始化前端项目、配置 ESLint/格式化、落地代码规范、Vue 页面模板/目录结构、提交前检查（husky/lint-staged/commitlint）、monorepo 规划、发布 npm 包”，即使没点名 ryanYan，也应触发本 skill 并按本文约定执行；涉及“从 0 初始化项目流程”时，优先联动 `initrepo` skill。
 metadata:
   author: ryanYan
