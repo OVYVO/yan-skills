@@ -13,7 +13,7 @@ metadata:
 - **Single Responsibility**: Each file should handle a single functional responsibility with clear inputs and outputs
 - **Large File Splitting**: Oversized files must be split in a reasonable and clear manner for maintainability
 - **Static Properties**: Static properties or enum fields should be maintained in a separate `config.js` file
-- **Usage Instructions**: Do not output a `Readme.md` file unless explicitly requested
+- **Usage Instructions**: Do not output a `README.md` file unless explicitly requested
 - **Feature Module Structure**: When creating a new feature module, follow the file structure below：
 
 ```json
