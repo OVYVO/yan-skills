@@ -26,7 +26,7 @@ metadata:
 ## 统一约定（所有模板都遵守）
 
 - **包管理器**：统一使用 `pnpm`
-- **Node**：建议 LTS；如果要固定版本，使用 `.nvmrc` 或 `volta`（二选一，避免重复，优先`.nvmrc`）
+- **Node**：建议 LTS；如果要固定版本，使用 `.nvmrc` 或 `volta`（二选一，避免重复，优先使用`.nvmrc`）
 - **命名**：
   - 包名：`kebab-case`
   - 目录：`kebab-case` 或 `camelCase`（同项目统一）
