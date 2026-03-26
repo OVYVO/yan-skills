@@ -16,7 +16,7 @@
     {
       "id": 3,
       "prompt": "团队要新起一个 React + Vite + TS 项目（pnpm），希望提交前自动格式化并跑 lint。请给出初始化流程和最终验收点。",
-      "expected_output": "输出应选择 React+Vite 模板，给出创建/安装/启动命令，并包含提交前检查目标与交付清单。",
+      "expected_output": "输出应选择 React+Vite 模板，给出创建、安装、启动命令，并包含提交前检查目标与交付清单。",
       "files": []
     }
   ]

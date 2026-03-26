@@ -12,13 +12,5 @@
   "singleAttributePerLine": false,
   "htmlWhitespaceSensitivity": "ignore",
   "sortPackageJson": false,
-  "ignorePatterns": [
-    ".github",
-    ".husky",
-    ".vscode",
-    "/public/**",
-    "/node_modules/**",
-    "**/*.svg",
-    "**/*.sh"
-  ]
+  "ignorePatterns": [".github", ".husky", ".vscode", "/public/**", "/node_modules/**", "**/*.svg", "**/*.sh"]
 }

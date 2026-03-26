@@ -1,167 +1,89 @@
 # yan-skills
 
-前端开发代码风格和规范技能集合，专注于提供高质量的前端工程化最佳实践与规范指南。
+个人常用前端工程化 skill 仓库，按 Cursor/Agent 可消费的目录结构维护，重点沉淀项目初始化、代码规范和代码审查等高频工作流。
 
-## 📖 项目简介
+## 项目定位
 
-yan-skills 是一个文档驱动的前端工程化知识库，收录了在前端开发（特别是 Vue 3 生态）中的代码规范、工程化配置和最佳实践。旨在帮助开发者：
+这个仓库是一个文档驱动的 skill 集合，不提供运行时代码。目标是把常用经验整理成稳定、可复用、可评测的 skill 单元，便于在不同项目中直接复用。
 
-- ✅ 统一代码风格，减少团队协作中的格式争议
-- ✅ 提升代码质量和可维护性
-- ✅ 快速搭建符合规范的前端项目
-- ✅ 建立标准化的工程化流程
+## 仓库结构
 
-## 🎯 核心内容
+```text
+skills/
+├── codeview/
+│   ├── SKILL.md
+│   └── evals.json
+├── frontend-standards/
+│   ├── SKILL.md
+│   └── evals.json
+└── initrepo/
+    ├── SKILL.md
+    └── evals.json
 
-### 1. 代码规范 (`skills/yan/skills.md`)
+docs/
+└── conventions.md
+```
 
-提供完整的前端代码规范指南，包括：
+## 当前 skills
 
-- **代码组织原则**
-  - 单一职责：单文件只做一件事
-  - 大文件拆分策略
-  - 静态映射下沉到 `config.js`
+### `frontend-standards`
 
-- **注释规范**
-  - 避免无意义注释
-  - 只解释 why，不解释显而易见的 how
+位置：`skills/frontend-standards/SKILL.md`
 
-- **Vue 页面模板**
-  - 基于 `my-page` 布局的标准页面骨架
-  - 开箱即用的 SFC 模板
+定义个人前端工程化偏好与代码规范，包括代码组织、注释策略、Vue 页面模板和工具链约定。
 
-- **工程化工具链**
-  - 包管理器：pnpm
-  - 格式化：oxfmt（含完整配置）
-  - 代码检查：ESLint Flat Config（含 Vue 3 配置）
-  - 自动导入集成方案
+### `initrepo`
 
-### 2. 项目初始化 (`skills/initrepo/skills.md`)
+位置：`skills/initrepo/SKILL.md`
 
-提供从 0 到 1 初始化前端项目的标准流程：
+定义从 0 初始化前端项目的标准流程，覆盖 Vue 3 + Vite、Nuxt、React + Vite 三类模板及工程化落地。
 
-- **三种项目模板**
-  - Vue 3 + Vite（默认推荐）
-  - Nuxt（SSR/全栈场景）
-  - React + Vite
+### `codeview`
 
-- **完整工程化落地**
-  - ESLint + 格式化配置
-  - Git Hooks（husky + lint-staged）
-  - 提交规范（commitlint）
-  - 样式检查（stylelint）
+位置：`skills/codeview/SKILL.md`
 
-- **推荐目录结构**
-  ```
-  src/
-  ├── api/              # 接口定义
-  ├── assets/           # 静态资源
-  ├── components/       # 公共组件
-  ├── directives/       # 自定义指令
-  ├── hooks/            # 组合式函数
-  ├── layout/           # 布局组件
-  ├── router/           # 路由配置
-  ├── store/            # 状态管理
-  ├── utils/            # 工具函数
-  └── views/            # 页面视图
-  ```
+定义前端代码审查流程、风险分级方式和输出格式，用于 PR review、问题定位和质量检查。
 
-- **CLI 中枢架构**（参考 `jg-pmg-centralized-control-web-v2`）
-  ```
-  cli/
-  ├── env/              # 多环境配置
-  ├── vite/             # Vite 配置拆分
-  ├── workflow/         # 生产工作流
-  └── script/           # 辅助脚本
-  ```
+## 维护约定
 
-## 🚀 快速开始
+- 一个 skill 一个目录，目录名即 skill id
+- skill 主文件统一命名为 `SKILL.md`
+- `SKILL.md` 中的 front matter `name` 必须与目录名一致
+- 每个 skill 的评测文件统一为同目录下的 `evals.json`
+- 仓库级约定统一写在 `docs/conventions.md`
 
-### 安装依赖
+## 新增 skill
+
+1. 在 `skills/` 下创建 `skills/<skill-id>/`
+2. 新建 `skills/<skill-id>/SKILL.md`
+3. 按需补充 `skills/<skill-id>/evals.json`
+4. 确保 `name`、目录名、评测中的 `skill_name` 一致
+
+## 本地维护
+
+安装依赖：
 
 ```bash
 pnpm install
 ```
 
-### 本地开发
+格式化：
 
 ```bash
-pnpm run dev
+pnpm format
 ```
 
-### 构建
+检查格式：
 
 ```bash
-pnpm run build
+pnpm format:check
 ```
 
-## 📦 技术栈
+## 参考说明
 
-- **文档系统**: Markdown
-- **代码格式化**: [oxfmt](https://github.com/oxc-project/oxc) ^0.38.0
-- **包管理器**: pnpm
-- **模块系统**: CommonJS
+- 仓库规范见 `docs/conventions.md`
+- 格式化配置见 `.oxfmtrc.json`
 
-## 📋 使用场景
-
-### 适用场景
-
-- ✅ 新建前端项目，需要标准化工程化配置
-- ✅ 团队代码规范统一，需要参考最佳实践
-- ✅ 学习 Vue 3 项目结构和编码规范
-- ✅ 配置 ESLint、格式化工具链
-- ✅ 搭建 monorepo 项目架构
-- ✅ 发布 npm 包的规范制定
-
-### 不适用场景
-
-- ❌ 需要运行时执行的库或框架
-- ❌ 后端相关技术规范
-- ❌ 移动端原生开发规范
-
-## 🔧 工具链配置
-
-### oxfmt 配置示例
-
-项目使用 oxfmt 进行代码格式化，核心配置：
-
-```json
-{
-  "printWidth": 120,
-  "tabWidth": 2,
-  "useTabs": false,
-  "semi": false,
-  "trailingComma": "none",
-  "singleQuote": false,
-  "bracketSpacing": true
-}
-```
-
-### ESLint 配置亮点
-
-- 支持 Vue 3 和 JavaScript
-- 集成 `unplugin-auto-import` 的全局变量
-- 500 行文件复杂度限制
-- 灵活的规则定制（关闭部分严格规则）
-
-## 🤝 贡献指南
-
-欢迎提交 Issue 和 Pull Request 来完善本技能库！
-
-### 添加新技能文档
-
-1. 在 `skills/` 目录下创建新的 `.md` 文件
-2. 遵循 Front Matter 格式规范
-3. 确保内容经过实践验证
-
-## 📄 License
+## License
 
 ISC
-
-## 👨‍💻 作者
-
-- **ryanYan** - 前端工程化实践者
-
----
-
-**注意**: 本项目是文档驱动的知识库，不包含实际运行时代码。所有规范均来源于实际项目经验，可直接应用于生产环境。

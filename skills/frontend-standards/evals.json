@@ -1,0 +1,23 @@
+{
+  "skill_name": "frontend-standards",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我们团队的 Vue 3 页面文件越来越大，经常把表格列配置、状态映射和接口调用都堆在一个 `index.vue` 里。请给我一套更易维护的拆分建议，并说明注释应该怎么写。",
+      "expected_output": "输出应强调单一职责、大文件拆分、静态映射下沉到 `config.js`，并说明注释只解释 why、不写无意义注释。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "我想统一一个 Vue 3 项目的工程化规范，主要关心包管理器、格式化工具、ESLint 方案，还有自动导入场景下怎么避免 lint 误报。请直接给推荐方案。",
+      "expected_output": "输出应推荐 `pnpm`、`oxfmt`、ESLint Flat Config，并提到 `unplugin-auto-import` 配套生成 `.eslintrc-auto-import.json` 以引入 globals。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "帮我起一个基于 `my-page` 的 Vue 页面模板，要有搜索区、按钮区、表格区和分页区，样式用 scoped scss。",
+      "expected_output": "输出应给出基于 `my-page` 的 Vue SFC 页面骨架，并包含 `searchForm`、`buttonGroup`、`tableBox`、`paginationBox` 四个插槽，以及 `script setup` 和 `style lang=\"scss\" scoped`。",
+      "files": []
+    }
+  ]
+}
