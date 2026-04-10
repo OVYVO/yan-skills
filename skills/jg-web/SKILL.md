@@ -28,7 +28,7 @@ metadata:
 - **Vue 组件**：`PascalCase`（组件文件名与组件名一致）
 - **页面/路由模块目录**：`src/views/<featureName>/`（`featureName` 建议 `camelCase` 或 `kebab-case`，以项目既有风格为准）
 - **静态映射与配置**：统一放在同模块下的 `config.ts`
-- **接口层**：同模块下 `api.ts` 或 `service.ts`（以项目既有习惯为准）
+- **接口层**：同模块下 `api.ts` 或 `api.js`（以项目既有习惯为准）
 
 ### 代码组织
 
@@ -44,6 +44,20 @@ metadata:
 2. 第三方库
 3. 项目内基础设施（`@/utils`、`@/service`、`@/api`）
 4. 当前模块内（`./config`、`./components/*`）
+
+### Auto Import（重要）
+
+默认项目会引入 `unplugin-auto-import/vite`，因此在编写代码时 **不需要**（也尽量不要）手动添加以下内容的 import：
+
+- **自动导入来源**：
+  - `vue`
+  - `vue-router`
+  - `element-plus`: `ElMessage` / `ElMessageBox` / `ElNotification`
+- **自动导入目录**：`src/hooks`
+
+输出代码片段/模板时，若使用到以上 API，优先直接使用（不额外写 `import { ref } from "vue"` 这类导入）。
+
+同时确保 ESLint 已读取 `./.eslintrc-auto-import.json`（由 auto-import 插件生成）以避免 globals 报错。
 
 ### 注释
 
@@ -97,11 +111,6 @@ metadata:
 
 ## 附录（可扩展）
 
-> TODO(jg-web)：你可以按需要在同目录添加更多文档并从这里链接，例如：
->
-> - `snippets/service.md`
-> - `snippets/table.md`
->
 > references（页面模板拆分维护）：
 >
 > - `references/page-template/page-list.vue`
