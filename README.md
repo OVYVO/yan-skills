@@ -16,6 +16,9 @@ skills/
 ├── frontend-standards/
 │   ├── SKILL.md
 │   └── evals.json
+├── jg-web/
+│   ├── SKILL.md
+│   └── evals.json
 └── initrepo/
     ├── SKILL.md
     └── evals.json
@@ -43,6 +46,12 @@ docs/
 位置：`skills/codeview/SKILL.md`
 
 定义前端代码审查流程、风险分级方式和输出格式，用于 PR review、问题定位和质量检查。
+
+### `jg-web`
+
+位置：`skills/jg-web/SKILL.md`
+
+定义 jg 公司 Web 日常开发的编码风格、常用代码片段与 Vue 页面模板骨架（Vue 3 + Vite）。
 
 ## 维护约定
 

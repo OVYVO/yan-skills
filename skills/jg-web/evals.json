@@ -1,0 +1,23 @@
+{
+  "skill_name": "jg-web",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "在 Vue 3 + Vite 项目里帮我新建一个典型列表页：包含查询区、按钮区、表格区、分页区，优先使用 my-page 的插槽结构。给出一个 index.vue 骨架，并说明建议的模块目录结构。",
+      "expected_output": "输出一个 Vue SFC 列表页骨架（searchForm/buttonGroup/tableBox/paginationBox 插槽）+ 推荐的 src/views/featureName/ 目录结构。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "我现在的列表页把状态映射、列配置、格式化函数都写在 index.vue 里，导致页面很长。请按 jg-web 风格把静态映射和 columns 抽到 config.ts，并给出示例代码。",
+      "expected_output": "建议将静态映射/列配置下沉到 config.ts；给出包含 StatusText/formatStatus/columns 的可复制示例。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "把页面中可复用的查询参数和请求逻辑抽离成 composable。按 jg-web 给一个 useFeature.ts 模板（含 loading、query、computed params、run 方法）。",
+      "expected_output": "输出 composable 模板代码：loading/ref、query/reactive、params/computed、run 异常路径关闭 loading，并返回这些成员。",
+      "files": []
+    }
+  ]
+}

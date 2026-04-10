@@ -1,0 +1,10 @@
+src/views/featureName/
+  index.vue
+  api.ts                # or service.ts
+  config.ts             # 列配置 / 映射 / 常量
+  components/
+    FeatureTable.vue
+    FeatureDialog.vue
+  composables/
+    useFeature.ts
+  types.ts              # 可选：领域类型集中
