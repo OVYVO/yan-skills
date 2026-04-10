@@ -56,95 +56,36 @@ metadata:
 
 > 说明：下面以你仓库既有的 `my-page` 插槽模式作为默认。若你们项目不使用该布局组件，将 `my-page` 替换为项目的页面容器即可。
 
-- 模板文件：`skills/jg-web/references/page-list.vue`
+- 模板文件：`skills/jg-web/references/page-template/page-list.vue`
 - 使用方式：复制该文件内容到 `src/views/<featureName>/index.vue`，再按项目组件库补齐 search/table/pagination 具体实现。
 
 ### B. 详情页骨架
 
-- 模板文件：`skills/jg-web/references/page-detail.vue`
+- 模板文件：`skills/jg-web/references/page-template/page-detail.vue`
 - 使用方式：复制该文件内容到 `src/views/<featureName>/index.vue`，并按路由参数补齐 `fetchDetail` 入参。
 
 ### C. 模块目录结构（建议）
 
-- 参考文件：`skills/jg-web/references/module-structure.txt`
+- 参考文件：`skills/jg-web/references/page-template/module-structure.txt`
 
 ### D. 搜索表单页骨架（表单 + 结果区）
 
-- 模板文件：`skills/jg-web/references/page-search-form.vue`
+- 模板文件：`skills/jg-web/references/page-template/page-search-form.vue`
 - 使用方式：适合“只有搜索表单 + 结果展示”的页面；如结果是列表，可直接替换为列表页模板并启用分页。
 
 ## 常用代码片段（可复制）
 
 ### 1) 静态映射与表格列配置下沉到 `config.ts`
 
-```ts
-// config.ts
-export const StatusText: Record<number, string> = {
-  0: "禁用",
-  1: "启用"
-}
-
-export function formatStatus(status?: number) {
-  if (status === undefined || status === null) return "-"
-  return StatusText[status] ?? `未知(${status})`
-}
-
-export type TableColumn = {
-  key: string
-  title: string
-  width?: number
-}
-
-export const columns: TableColumn[] = [
-  { key: "name", title: "名称" },
-  { key: "status", title: "状态", width: 120 }
-]
-```
+- 片段文件：`skills/jg-web/references/code-snippets/config.ts`
 
 ### 2) service 调用约定（占位）
 
-> TODO(jg-web)：根据你们的请求库（axios/fetch 封装）、返回结构（`{ list, total }` / `data` 包裹等）补齐示例。
-
-建议最少明确：
-
-- **函数命名**：`fetchXxxList` / `fetchXxxDetail` / `createXxx` / `updateXxx` / `deleteXxx`
-- **参数结构**：列表请求参数统一为 `{ ...query, page, pageSize }`
-- **错误处理**：失败是否 toast、是否吞错、是否需要区分业务码
+- 片段文件：`skills/jg-web/references/code-snippets/service.md`
 
 ### 3) composable 抽离模板（占位）
 
-```ts
-// composables/useFeature.ts
-import { computed, reactive, ref } from "vue"
-
-export function useFeature() {
-  const loading = ref(false)
-
-  const query = reactive({
-    // TODO(jg-web)
-  })
-
-  const params = computed(() => ({
-    ...query
-  }))
-
-  async function run() {
-    loading.value = true
-    try {
-      // TODO(jg-web)
-    } finally {
-      loading.value = false
-    }
-  }
-
-  return {
-    loading,
-    query,
-    params,
-    run
-  }
-}
-```
+- 片段文件：`skills/jg-web/references/code-snippets/useFeature.ts`
 
 ## 交付前自检清单（快速）
 
@@ -163,7 +104,13 @@ export function useFeature() {
 >
 > references（页面模板拆分维护）：
 >
-> - `references/page-list.vue`
-> - `references/page-detail.vue`
-> - `references/page-search-form.vue`
-> - `references/module-structure.txt`
+> - `references/page-template/page-list.vue`
+> - `references/page-template/page-detail.vue`
+> - `references/page-template/page-search-form.vue`
+> - `references/page-template/module-structure.txt`
+>
+> references（常用代码片段拆分维护）：
+>
+> - `references/code-snippets/config.ts`
+> - `references/code-snippets/useFeature.ts`
+> - `references/code-snippets/service.md`
