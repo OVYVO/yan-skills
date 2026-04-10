@@ -68,6 +68,11 @@ metadata:
 
 - 参考文件：`skills/jg-web/references/module-structure.txt`
 
+### D. 搜索表单页骨架（表单 + 结果区）
+
+- 模板文件：`skills/jg-web/references/page-search-form.vue`
+- 使用方式：适合“只有搜索表单 + 结果展示”的页面；如结果是列表，可直接替换为列表页模板并启用分页。
+
 ## 常用代码片段（可复制）
 
 ### 1) 静态映射与表格列配置下沉到 `config.ts`
@@ -160,4 +165,5 @@ export function useFeature() {
 >
 > - `references/page-list.vue`
 > - `references/page-detail.vue`
+> - `references/page-search-form.vue`
 > - `references/module-structure.txt`
