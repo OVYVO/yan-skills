@@ -1,5 +1,5 @@
 ---
-name: initrepo
+name: init-repo
 description: 用于初始化可长期维护的前端项目，覆盖脚手架选择、依赖安装、Lint 与格式化、Git Hooks、目录约定与验收清单。适用于创建 Vue、Nuxt、React 前端项目，或梳理项目初始化与工程化落地流程的场景。
 metadata:
   author: ryanYan

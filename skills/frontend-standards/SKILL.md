@@ -62,7 +62,15 @@ metadata:
   "singleAttributePerLine": false,
   "htmlWhitespaceSensitivity": "ignore",
   "sortPackageJson": false,
-  "ignorePatterns": [".github", ".husky", ".vscode", "/public/**", "/node_modules/**", "**/*.svg", "**/*.sh"]
+  "ignorePatterns": [
+    ".github",
+    ".husky",
+    ".vscode",
+    "/public/**",
+    "/node_modules/**",
+    "**/*.svg",
+    "**/*.sh"
+  ]
 }
 ```
 
@@ -70,29 +78,29 @@ metadata:
   - 若项目使用 `unplugin-auto-import`，配套生成 `.eslintrc-auto-import.json` 并在 ESLint globals 中引入。
 
 ```js
-import globals from "globals"
-import pluginJs from "@eslint/js"
-import pluginVue from "eslint-plugin-vue"
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import pluginVue from "eslint-plugin-vue";
 
-import { createRequire } from "module"
-const require = createRequire(import.meta.url)
-const autoImportConfig = require("./.eslintrc-auto-import.json")
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const autoImportConfig = require("./.eslintrc-auto-import.json");
 
 export default [
   {
     files: ["**/*.{js,mjs,cjs,vue}"],
     rules: {
-      "no-negated-condition": "off"
-    }
+      "no-negated-condition": "off",
+    },
   },
   {
     languageOptions: {
       globals: {
         ...globals.browser,
         ...globals.node,
-        ...autoImportConfig.globals
-      }
-    }
+        ...autoImportConfig.globals,
+      },
+    },
   },
   pluginJs.configs.recommended,
   ...pluginVue.configs["flat/essential"],
@@ -102,30 +110,33 @@ export default [
       "vue/block-lang": [
         "error",
         {
-          script: { lang: "js" }
-        }
+          script: { lang: "js" },
+        },
       ],
       "vue/block-order": [
         "error",
         {
-          order: ["template", "script", "style"]
-        }
+          order: ["template", "script", "style"],
+        },
       ],
       "vue/html-self-closing": "off",
       "vue/multi-word-component-names": "off",
       "vue/max-attributes-per-line": "off",
       "vue/singleline-html-element-content-newline": "off",
       "vue/no-deprecated-v-on-native-modifier": "off",
-      "max-lines": ["error", { max: 500, skipBlankLines: true, skipComments: true }]
-    }
+      "max-lines": [
+        "error",
+        { max: 500, skipBlankLines: true, skipComments: true },
+      ],
+    },
   },
   {
-    ignores: ["node_modules/*", "dist/*", "public/*", "cli/*", "**/*.min.js"]
-  }
-]
+    ignores: ["node_modules/*", "dist/*", "public/*", "cli/*", "**/*.min.js"],
+  },
+];
 ```
 
-## 与 `initrepo` 的分工
+## 与 `init-repo` 的分工
 
 - **本 skill**：定义偏好与规范，例如目录、代码风格、工具链约束和模板
-- **`initrepo`**：负责从 0 初始化项目的完整流程，例如脚手架、安装、命令、工程化落地和验收
+- **`init-repo`**：负责从 0 初始化项目的完整流程，例如脚手架、安装、命令、工程化落地和验收

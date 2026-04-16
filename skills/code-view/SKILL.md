@@ -1,5 +1,5 @@
 ---
-name: codeview
+name: code-view
 description: 用于审查前端代码的正确性、可维护性、性能、可访问性与风险。适用于代码审查、PR Review、问题排查，以及用户提供前端文件、diff 或代码片段并希望获得质量反馈的场景。
 metadata:
   author: ryanYan
