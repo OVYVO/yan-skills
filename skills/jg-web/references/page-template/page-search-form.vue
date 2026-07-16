@@ -20,38 +20,34 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive, ref } from "vue"
-
-const pageTitle = "TODO"
-
-const loading = ref(false)
-
+const pageTitle = "TODO";
+const loading = ref(false);
 const form = reactive({
-  keyword: ""
+  keyword: "",
   // TODO(jg-web): 其他字段（如日期范围、状态等）
-})
+});
 
 const params = computed(() => ({
-  ...form
-}))
+  ...form,
+}));
 
-const result = ref<any>(null)
+const result = ref<any>(null);
 
 async function onSearch() {
-  loading.value = true
+  loading.value = true;
   try {
     // TODO(jg-web): 调用 service / api
     // const res = await fetchXxx(params.value)
     // result.value = res
   } finally {
-    loading.value = false
+    loading.value = false;
   }
 }
 
 function onReset() {
-  form.keyword = ""
+  form.keyword = "";
   // TODO(jg-web): 重置其他字段
-  result.value = null
+  result.value = null;
 }
 </script>
 

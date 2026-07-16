@@ -3,6 +3,7 @@ src/views/featureName/
   api.ts                # or service.ts
   config.ts             # 列配置 / 映射 / 常量
   components/
+    DetailForm.vue      # 详情页组件
     FeatureTable.vue
     FeatureDialog.vue
   composables/

@@ -26,7 +26,7 @@ metadata:
 
 - **模块目录**：放置在 `src/views/<featureName>/`（`featureName` 使用 `camelCase` 命名风格）
 - **模块入口文件**：统一使用 `index.vue` 命名（一个功能模块仅能存在一个入口文件）
-- **模块静态映射与配置文件**：统一使用 `config.ts` 或 `config.js` 命名（已以项目既有习惯为准）
+- **模块静态映射与配置文件**：统一使用 `config.ts` 或 `config.js` 命名（以项目既有习惯为准）
 - **模块 api 请求文件**：统一使用 `api.ts` 或 `api.js` 命名（以项目既有习惯为准）
 - **模块 ts 类型文件**：统一使用 `type.d.ts` 命名 （如果使用 ts）
 - **模块组件文件夹**：统一使用 `components` 命名，文件夹内文件使用 `camelCase` 命名风格
@@ -55,7 +55,7 @@ metadata:
   - `vue`
   - `vue-router`
   - `element-plus`: `ElMessage` / `ElMessageBox` / `ElNotification`
-- **自动导入目录**：`src/hooks`
+- **自动导入目录**：`src/hooks` / `src/components` / `src/directives`
 
 输出代码片段/模板时，若使用到以上 API，优先直接使用（不额外写 `import { ref } from "vue"` 这类导入）。
 
@@ -72,13 +72,13 @@ metadata:
 
 > 说明：下面以你仓库既有的 `my-page` 插槽模式作为默认。若你们项目不使用该布局组件，将 `my-page` 替换为项目的页面容器即可。
 
-- 模板文件：`skills/jg-web/references/page-template/page-list.vue`
-- 使用方式：复制该文件内容到 `src/views/<featureName>/index.vue`，再按项目组件库补齐 search/table/pagination 具体实现。
+- 模板文件：`skills/jg-web/references/page-template/page-list.md`
+- 使用方式：适合快速搭建常规“搜索 + 列表 +分页”页面。
 
 ### B. 详情页骨架
 
 - 模板文件：`skills/jg-web/references/page-template/page-detail.vue`
-- 使用方式：复制该文件内容到 `src/views/<featureName>/index.vue`，并按路由参数补齐 `fetchDetail` 入参。
+- 使用方式：复制该文件内容到 `src/views/<featureName>/components/detailForm.vue`，并按路由参数补齐 `fetchDetail` 入参。
 
 ### C. 模块目录结构（建议）
 
